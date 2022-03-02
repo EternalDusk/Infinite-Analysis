@@ -1,0 +1,3 @@
+lib
+matplotlib
+tk
