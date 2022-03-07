@@ -8,7 +8,7 @@ import os
 
 
 #===SETTINGS===
-username = input("Enter the username of the player you'd like to track: ")
+username = input("Enter the username of the player you'd like to track: ").replace(" ", "_")
 
 playerGames = "gameData_" + username
 resources_dir = os.path.expanduser('~\\Documents\\Dusk')
@@ -84,7 +84,6 @@ for gameFile in os.listdir((os.path.join(resources_dir, playerGames))):
 		data = json.load(json_file)
 
 		if (data["details"]["playlist"]["properties"]["ranked"] == True):
-
 			accuracy = round(data["player"]["stats"]["core"]["shots"]["accuracy"], 2)
 			rank = data["player"]["rank"]
 			map = data["details"]["map"]["name"]
@@ -100,6 +99,22 @@ for gameFile in os.listdir((os.path.join(resources_dir, playerGames))):
 
 			matchInfo.append([accuracy, rank, map, gametype, outcome, CSR_change, score, dateTime, csr])
 
+		else:
+			accuracy = round(data["player"]["stats"]["core"]["shots"]["accuracy"], 2)
+			rank = data["player"]["rank"]
+			map = data["details"]["map"]["name"]
+			gametype = data["details"]["category"]["name"]
+			outcome = data["player"]["outcome"]
+			csr = -1
+			CSR_change = 0
+			score = data["player"]["stats"]["core"]["score"]
+
+			date = data["played_at"][0:10]
+			time = data["played_at"][11:19]
+			dateTime = parse(date + " " + time).strftime("%m%d%Y, %H:%M:%S")
+
+			matchInfo.append([accuracy, rank, map, gametype, outcome, CSR_change, score, dateTime, csr])
+
 matchInfo.sort(key=lambda x: x[7])
 matchSorted = matchInfo[::-1]
 
@@ -107,10 +122,14 @@ gameInfo = {}
 
 saved_csr = current_CSR
 
+saved_mmr = 0
+mmr_set = False
+
 for g in games["data"]:
 	if (g["details"]["playlist"]["properties"]["ranked"] == True):
 		current_mmr = round(g["player"]["team"]["skill"]["mmr"], 4)
 		saved_mmr = current_mmr
+		mmr_set = True
 		break
 
 for i in range(0,10):
@@ -133,6 +152,8 @@ for i in range(0,10):
 
 	i += 1
 
+if (mmr_set == False):
+	current_mmr = 0
 
 #===STARTING FLASK APPLICATION===
 app = Flask('Infinite Analysis', static_folder=static_path, template_folder=template_path)
