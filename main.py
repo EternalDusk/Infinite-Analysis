@@ -7,7 +7,6 @@ import requests
 import os
 
 
-
 #===SETTINGS===
 username = input("Enter the username of the player you'd like to track: ")
 
@@ -64,13 +63,11 @@ backgroundURL = profile["data"]["backdrop_image_url"]
 emblemURL = profile["data"]["emblem_url"]
 serviceTag = profile["data"]["service_tag"]
 
-csr_tier_url = games["data"][0]["player"]["progression"]["csr"]["post_match"]["tier_image_url"]
+csr_tier_url = csr_info["data"][0]["response"]["current"]["tier_image_url"]
 
 current_CSR = csr_info["data"][0]["response"]["current"]["value"]
 tier_start = csr_info["data"][0]["response"]["current"]["tier_start"]
 next_tier_start = csr_info["data"][0]["response"]["current"]["next_tier_start"]
-
-current_mmr = round(games["data"][0]["player"]["team"]["skill"]["mmr"], 4)
 
 for item in games["data"]:
 	gameID = item["id"]
@@ -109,6 +106,13 @@ matchSorted = matchInfo[::-1]
 gameInfo = {}
 
 saved_csr = current_CSR
+
+for g in games["data"]:
+	print(g["details"]["playlist"]["properties"]["ranked"])
+	if (g["details"]["playlist"]["properties"]["ranked"] == True):
+		current_mmr = round(g["player"]["team"]["skill"]["mmr"], 4)
+		saved_mmr = current_mmr
+		break
 
 for i in range(0,10):
 	nameAcc = "game" + str(i) + "acc"
