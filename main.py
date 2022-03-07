@@ -12,8 +12,8 @@ username = input("Enter the username of the player you'd like to track: ")
 
 playerGames = "gameData_" + username
 resources_dir = os.path.expanduser('~\\Documents\\Dusk')
-static_path = os.path.join(os.getcwd(), './black-dashboard-master/assets')
-template_path = os.path.join(os.getcwd(), './black-dashboard-master')
+static_path = os.path.join('black-dashboard-master\\assets')
+template_path = os.path.join('black-dashboard-master')
 
 #===TOKEN SETTING===
 lib = lib({'token': '<insert_token_here>'})
@@ -108,7 +108,6 @@ gameInfo = {}
 saved_csr = current_CSR
 
 for g in games["data"]:
-	print(g["details"]["playlist"]["properties"]["ranked"])
 	if (g["details"]["playlist"]["properties"]["ranked"] == True):
 		current_mmr = round(g["player"]["team"]["skill"]["mmr"], 4)
 		saved_mmr = current_mmr
