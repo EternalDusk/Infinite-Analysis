@@ -8,6 +8,14 @@ A random project idea I spent just under 10 total hours working on to complete. 
 
 ## Getting Started
 
+### Usage (for non-developers)
+
+Simply download the exe under releases (also found at https://github.com/EternalDusk/Infinite-Analysis/releases )
+
+Run main.exe, and once the window pops up just enter in your username.
+
+Then, in your web browser, navigate to http://localhost:8080/
+
 ### Dependencies
 
 * lib
@@ -24,10 +32,6 @@ cd Infinite-Analysis
 Navigate to https://autocode.com/auth/, make a free account and get a General Use Identity Token (found under the Identity Tokens menu)
 
 Open main.py, and under settings on line 21, replace <insert_token_here> with your token
-
-* From release:
-
-Simply download the exe under releases (also found at https://github.com/EternalDusk/Infinite-Analysis/releases )
 
 ### Executing program
 
