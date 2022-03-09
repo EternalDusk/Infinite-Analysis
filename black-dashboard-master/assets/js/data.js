@@ -54,9 +54,15 @@ var game9mmr = 1.00;
 var csrMin = 1300;
 var csrMax = 1350;
 
-function loadTierData(min, max) {
-  csrMin = min;
-  csrMax = max;
+var mmrMin = 1200;
+var mmrMax = 1500;
+
+function loadTierData(csrmin, csrmax, mmr) {
+  csrMin = csrmin;
+  csrMax = csrmax;
+
+  mmrMin = mmr - 10;
+  mmrMax = mmr + 10;
 
 }
 
@@ -387,8 +393,8 @@ demo = {
             zeroLineColor: "transparent",
           },
           ticks: {
-            suggestedMin: 1000,
-            suggestedMax: 2000,
+            suggestedMin: mmrMin,
+            suggestedMax: mmrMax,
             padding: 20,
             fontColor: "#9e9e9e"
           }
