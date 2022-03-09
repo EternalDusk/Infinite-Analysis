@@ -61,6 +61,23 @@ Eternal Dusk
 
 * v1.0
     * Initial Release
+* v1.0.1
+    * Fixed bug causing crash when player never played a ranked match
+    * Fixed bug where player had space in their name
+    * Table shows all game history, not just ranked
+* v1.1.0
+    * Removed unnecessary modal search bar code
+    * Saved all teams data for each page
+    * Added past games page
+    * Fixed bug where player had less than 10 games played
+    * Added better handling to determining ranked matches
+    * Added game data to each game
+    * Webpage automatically opens on program startup
+
+## To-Do
+- [ ] Medal Chest
+- [ ] Custom Scoring System
+- [ ] Automatically update/reload webpage on new game
 
 ## Acknowledgments
 
