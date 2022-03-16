@@ -78,6 +78,7 @@ Eternal Dusk
 - [ ] Medal Chest
 - [ ] Custom Scoring System
 - [ ] Automatically update/reload webpage on new game
+- [ ] Filtering by custom/ranked/social games
 
 ## Acknowledgments
 
