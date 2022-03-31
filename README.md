@@ -20,6 +20,8 @@ Then, in your web browser, navigate to http://localhost:8080/
 
 * lib
 * Flask
+* requests
+* python-dateutil
 
 ### Installing
 
@@ -73,6 +75,8 @@ Eternal Dusk
     * Added better handling to determining ranked matches
     * Added game data to each game
     * Webpage automatically opens on program startup
+* v1.1.1
+    * Added missing requirement to requirements.txt
 
 ## To-Do
 - [ ] Medal Chest
