@@ -1,3 +1,5 @@
+# WARNING! Project deprecated due to the drop of support from 343 with HaloDotApi. This program will not work and is no longer being maintained.
+
 # Halo Infinite Stats Analysis
 
 Simple GUI implementation to track stats of past Halo Infinite ranked crossplay games.
